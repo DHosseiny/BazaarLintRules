@@ -18,6 +18,7 @@ package com.farsitel.bazaar.lintrules
 import com.android.tools.lint.client.api.IssueRegistry
 import com.android.tools.lint.client.api.Vendor
 import com.android.tools.lint.detector.api.CURRENT_API
+import com.farsitel.bazaar.lintrules.rules.PluginsOverrideInAbstractClassDetector
 
 /*
  * The list of issues that will be checked when running <code>lint</code>.

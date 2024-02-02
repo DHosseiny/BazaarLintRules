@@ -4,6 +4,7 @@ import com.android.tools.lint.checks.infrastructure.TestFiles.kotlin
 import com.android.tools.lint.checks.infrastructure.TestLintResult
 import com.android.tools.lint.checks.infrastructure.TestLintTask.lint
 import com.android.tools.lint.checks.infrastructure.TestMode
+import com.farsitel.bazaar.lintrules.rules.PluginsOverrideInAbstractClassDetector
 import org.intellij.lang.annotations.Language
 import org.junit.Test
 
