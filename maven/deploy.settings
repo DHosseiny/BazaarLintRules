@@ -1,0 +1,8 @@
+siteUrl = https://github.com/DHosseiny/BazaarLintRules
+gitUrl = https://github.com/DHosseiny/BazaarLintRules.git
+version = 0.0.1
+groupId = com.farsitel.bazaar
+licenses = ['Apache-2.0']
+id = BazaarLintRules
+name = BazaarLintRules
+description = Lint rules for Bazaar client app
