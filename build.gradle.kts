@@ -5,5 +5,3 @@ plugins {
     alias(libs.plugins.kotlin.jvm) apply false
     alias(libs.plugins.android.lint) apply false
 }
-
-apply(from = "$rootDir/maven/config.gradle")
