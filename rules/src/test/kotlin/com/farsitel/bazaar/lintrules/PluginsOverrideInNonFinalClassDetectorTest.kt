@@ -120,7 +120,7 @@ class PluginsOverrideInNonFinalClassDetectorTest {
         """
 
         const val EXPECTED_ERROR_TEXT = """
-src/test/pkg/BaseFragment.kt:11: Error: non-final fragment/activity should not override plugins function. override in child classes instead. [PluginsInNonFinalClass]
+src/test/pkg/BaseFragment.kt:11: Error: Non-final fragment/activity should not override plugins function. override in child classes instead. [PluginsInNonFinalClass]
     override fun plugins(): Array<Any> {
     ^
 1 errors, 0 warnings"""

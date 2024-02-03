@@ -61,7 +61,7 @@ class PluginsOverrideInNonFinalClassDetector : Detector(), UastScanner {
                             ISSUE,
                             node,
                             context.getLocation(this),
-                            """non-final fragment/activity should not override `plugins` function. `override` in child classes instead."""
+                            """Non-final fragment/activity should not override `plugins` function. `override` in child classes instead."""
                         )
                     }
             }
