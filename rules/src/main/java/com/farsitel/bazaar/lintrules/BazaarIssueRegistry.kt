@@ -18,13 +18,13 @@ package com.farsitel.bazaar.lintrules
 import com.android.tools.lint.client.api.IssueRegistry
 import com.android.tools.lint.client.api.Vendor
 import com.android.tools.lint.detector.api.CURRENT_API
-import com.farsitel.bazaar.lintrules.rules.PluginsOverrideInAbstractClassDetector
+import com.farsitel.bazaar.lintrules.rules.PluginsOverrideInNonFinalClassDetector
 
 /*
  * The list of issues that will be checked when running <code>lint</code>.
  */
 class BazaarIssueRegistry : IssueRegistry() {
-    override val issues = listOf(PluginsOverrideInAbstractClassDetector.ISSUE)
+    override val issues = listOf(PluginsOverrideInNonFinalClassDetector.ISSUE)
 
     override val api: Int
         get() = CURRENT_API

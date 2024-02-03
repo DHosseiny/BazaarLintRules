@@ -29,9 +29,9 @@ import org.jetbrains.uast.UClass
 import org.jetbrains.uast.UElement
 
 /**
- * Detector spotting abstract classes that extends BaseFragment and overriding plugins function.
+ * Detector spotting non-final classes that extends BaseFragment and overriding plugins function.
  */
-class PluginsOverrideInAbstractClassDetector : Detector(), UastScanner {
+class PluginsOverrideInNonFinalClassDetector : Detector(), UastScanner {
 
     override fun getApplicableUastTypes(): List<Class<out UElement?>> {
         return listOf(UClass::class.java)
@@ -48,7 +48,8 @@ class PluginsOverrideInAbstractClassDetector : Detector(), UastScanner {
                 buildSet {
                     InheritanceUtil.getSuperClasses(node, this, false)
                 }.find {
-                    it.name == "BaseFragment"
+                    it.name == "BaseFragment" ||
+                    it.name == "BaseActivity"
                 } ?: return
 
                 node.findMethodsByName("plugins", false)
@@ -60,8 +61,7 @@ class PluginsOverrideInAbstractClassDetector : Detector(), UastScanner {
                             ISSUE,
                             node,
                             context.getLocation(this),
-                            """abstract/open fragment should not override `plugins` function.
-                           override in child classes instead."""
+                            """non-final fragment/activity should not override `plugins` function. `override` in child classes instead."""
                         )
                     }
             }
@@ -76,20 +76,20 @@ class PluginsOverrideInAbstractClassDetector : Detector(), UastScanner {
         @JvmField
         val ISSUE: Issue = Issue.create(
             // ID: used in @SuppressLint warnings etc
-            id = "PluginInAbstractClass",
+            id = "PluginsInNonFinalClass",
             // Title -- shown in the IDE's preference dialog, as category headers in the
             // Analysis results window, etc
-            briefDescription = "Plugins In Abstract class",
+            briefDescription = "Plugins override In non-final class",
             // Full explanation of the issue; you can use some markdown markup such as
             // `monospace`, *italic*, and **bold**.
             explanation = """
-                    This check mentions plugins function override in abstract classes.
+                    This rules checks plugins function override in non-final classes.
                     """, // no need to .trimIndent(), lint does that automatically
             category = Category.CORRECTNESS,
             priority = 6,
             severity = Severity.ERROR,
             implementation = Implementation(
-                PluginsOverrideInAbstractClassDetector::class.java,
+                PluginsOverrideInNonFinalClassDetector::class.java,
                 Scope.JAVA_FILE_SCOPE // means Java/Kotlin
             )
         )
