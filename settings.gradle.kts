@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Lint Rules"
+rootProject.name = "lint-rules"
 include(":app")
 include(":rules")

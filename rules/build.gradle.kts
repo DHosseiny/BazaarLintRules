@@ -23,3 +23,5 @@ dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.bundles.lint.tests)
 }
+
+apply(from = "$rootDir/maven/publish.gradle")
