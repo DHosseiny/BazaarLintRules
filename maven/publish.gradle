@@ -48,17 +48,17 @@ artifact.load(new FileInputStream(deploy))
 
 version = artifact.version
 group = artifact.groupId
-//
-//afterEvaluate {
-//    publishing {
-//        publications {
-//            release(MavenPublication) {
-//                groupId artifact.groupId
-//                artifactId artifact.id
-//                version artifact.version
-//                from components.release
-//
-//                pom {
+
+afterEvaluate {
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                groupId artifact.groupId
+                artifactId artifact.id
+                version artifact.version
+                from components.java
+            }
+//}                pom {
 //                    name = artifact.id
 //                    packaging = 'aar'
 //                    description = artifact.description
@@ -86,6 +86,6 @@ group = artifact.groupId
 //                    }
 //                }
 //            }
-//        }
-//    }
-//}
+        }
+    }
+}
